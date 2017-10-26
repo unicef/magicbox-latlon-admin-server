@@ -12,5 +12,6 @@ const port = process.env.PORT || 8082;        // set our port
 
 app.use('/api', router);
 
+var thing = 'asdf'
 app.listen(port);
 console.log('Magic happens on port ' + port);
