@@ -38,7 +38,7 @@ This is an API that takes latitude/longitude pairs, and returns an ID and metada
 	cd coordinates_to_admin_id_server
 	cp config-sample.js config.js
 	npm install
-	npm rub build
+	npm run build
 
 
 #### Batch example
