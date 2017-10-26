@@ -2,7 +2,6 @@ import { Pool } from 'pg'
 // import Cursor from 'pg-cursor'
 import * as config from '../config'
 import bluebird from 'bluebird'
-import iso_3_2 from '../public/iso3_2'
 const pool_schools = new Pool(config.db_schools)
 const pool_countries = new Pool(config.db_countries)
 
