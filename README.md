@@ -1,8 +1,12 @@
-## Latitude longitude coordinates to admin ID server
+Latitude/longitude coordinates to admin ID server
+=================================================
 
-[This is a component of Magic Box](https://github.com/unicef/magicbox/wiki)
+[![Documentation Status](https://readthedocs.org/projects/coordinates-to-admin-id-server/badge/?version=latest)](https://coordinates-to-admin-id-server.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://travis-ci.org/unicef/coordinates_to_admin_id_server.svg?branch=master)](https://travis-ci.org/unicef/coordinates_to_admin_id_server)
 
-This is an API that takes latitude/longitude pairs, and returns an ID and metadata for the administrative boundaries they're located within.
+[This is a component of Magic Box](https://github.com/unicef/magicbox)
+
+API that takes latitude/longitude pairs and returns an ID and metadata for the
+administrative boundaries they're located within
 
 ### Example
 	curl http://localhost:8082/api/coordinates/33.385586,66.445313
