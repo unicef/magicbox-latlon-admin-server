@@ -1,0 +1,4 @@
+## Theme for Sphinx documentation
+sphinx
+sphinx-js
+sphinx_rtd_theme
