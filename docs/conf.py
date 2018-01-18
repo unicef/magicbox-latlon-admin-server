@@ -31,10 +31,11 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'sphinx.ext.imgmath',
-    'sphinx_js']
+extensions = ['sphinx_js']
+
+# Set all *.js as "code" documents
+# https://github.com/erikrose/sphinx-js#saving-keystrokes-by-setting-the-primary-domain
+primary_domain = 'js'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -174,7 +175,7 @@ texinfo_documents = [
 ]
 
 
+# -- Options for jsdoc ----------------------------------------------------
+# https://github.com/erikrose/sphinx-js#configuration-reference
 
-
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+js_source_path = '../src'
