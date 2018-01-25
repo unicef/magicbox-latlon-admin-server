@@ -1,0 +1,17 @@
+version: '3'
+services:
+  latlong-server:
+    build: .
+    ports:
+      - "8082:8082"
+    volumes:
+      - .:/code:z
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 'devel'
+  download-shapefiles:
+    image: jflory/download_shapefiles_from_gadm
+    volumes:
+      - ./data:/data/gadm:z
