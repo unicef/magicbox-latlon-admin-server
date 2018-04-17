@@ -1,7 +1,8 @@
 Latitude/longitude coordinates to admin ID server
 =================================================
 
-[![Documentation Status](https://readthedocs.org/projects/coordinates-to-admin-id-server/badge/?version=latest)](https://coordinates-to-admin-id-server.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://travis-ci.org/unicef/coordinates_to_admin_id_server.svg?branch=master)](https://travis-ci.org/unicef/coordinates_to_admin_id_server)
+[![Chat on Gitter](https://badges.gitter.im/unicef-innovation-dev/Lobby.png)](https://gitter.im/unicef-innovation-dev/Lobby)
+[![Build Status](https://travis-ci.org/unicef/coordinates_to_admin_id_server.svg?branch=master)](https://travis-ci.org/unicef/coordinates_to_admin_id_server)
 
 [This is a component of Magic Box](https://github.com/unicef/magicbox)
 
