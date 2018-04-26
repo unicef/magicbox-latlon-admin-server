@@ -9,6 +9,8 @@ Latitude/longitude coordinates to admin ID server
 API that takes latitude/longitude pairs and returns an ID and metadata for the
 administrative boundaries they're located within
 
+![screenshot](./public/illustration.png)
+
 ### Example
 	curl http://localhost:8082/api/coordinates/33.385586,66.445313
 #### returns ...
