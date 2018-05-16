@@ -35,7 +35,11 @@ router.route('/coordinates/:coordinates')
       });
     }).then(ary => {
       return res.json(ary);
-    }, {concurrency: 2});
+    }, {concurrency: 2})
+    .catch(err => {
+      console.log(err)
+      return res.json({error: `Exception: ${err}`})
+    });
   });
 
 module.exports = router;

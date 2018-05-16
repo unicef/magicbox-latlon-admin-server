@@ -18,7 +18,7 @@ pool_countries.on('error', (err, client) => {
 exports.search = function(coordinates) {
   return new Promise((resolve, reject) => {
     pool_countries.connect((err, client, done) => {
-      if (err) throw err
+      if (err) return reject(err)
       client.query('select iso, name_0, name_1, name_2, ' +
       'name_3, name_4, name_5, ' +
       'ID_0, ID_1, ID_2, ID_3, ID_4, ID_5 from all_countries_one_table ' +
@@ -27,7 +27,7 @@ exports.search = function(coordinates) {
       ')\',4326),4326), all_countries_one_table.geom);', [], (error, res) => {
         done()
         if (error) {
-          console.log(error.stack)
+          return reject(error)
         } else {
           if (res.rows.length < 1) {
             return resolve(
