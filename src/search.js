@@ -19,12 +19,18 @@ exports.search = function(coordinates) {
   return new Promise((resolve, reject) => {
     pool_countries.connect((err, client, done) => {
       if (err) return reject(err)
-      client.query('select iso, name_0, name_1, name_2, ' +
-      'name_3, name_4, name_5, ' +
-      'ID_0, ID_1, ID_2, ID_3, ID_4, ID_5 from all_countries_one_table ' +
+      client.query(
+        `select
+        GID_0,NAME_0,
+        GID_1, NAME_1,
+        GID_2, NAME_2,
+        GID_3, NAME_3,
+        GID_4, NAME_4,
+        GID_5, NAME_5
+        from highest_level_admin ` +
       'WHERE ST_Within (ST_Transform (ST_GeomFromText (\'POINT(' +
       coordinates.lon + ' ' + coordinates.lat +
-      ')\',4326),4326), all_countries_one_table.geom);', [], (error, res) => {
+      ')\',4326),4326), highest_level_admin.geom);', [], (error, res) => {
         done()
         if (error) {
           return reject(error)
@@ -34,6 +40,7 @@ exports.search = function(coordinates) {
               {error: {message: 'No results'}}
             )
           }
+          console.log(res)
           let enriched_record = add_admin_id(
                                   remove_pesky_quote(res)
                                 )
@@ -59,19 +66,42 @@ function remove_pesky_quote(object) {
     return h
   }, {});
 }
+
+
 /**
  * Returns admin id per coordinates
  * @param  {Object} shape_obj admin
  * @return {Object} admin
  */
 function add_admin_id(shape_obj) {
-  let iso = shape_obj.iso.toLowerCase();
-  let ids = Object.keys(shape_obj).filter(k => {
-    return k.match(/^ID_\d+/i);
-  }).map(k => {
-    return shape_obj[k]
-  }).join('_')
-  let admin_id = [iso, ids, 'gadm2-8'].join('_');
-  shape_obj.admin_id = admin_id;
+  console.log(shape_obj)
+  const IDs = Object.keys(shape_obj).filter(
+    k => {
+      return k.match(/^gid_\d+/i)
+    }
+  )
+  const admin_ID = shape_obj[IDs.reverse()[0]]
+  console.log(admin_ID)
+  IDs.forEach(ID => {
+    delete(shape_obj[ID])
+  })
+  shape_obj.admin_id = admin_ID + '_gadm36';
   return shape_obj;
 }
+
+// /**
+//  * Returns admin id per coordinates
+//  * @param  {Object} shape_obj admin
+//  * @return {Object} admin
+//  */
+// function add_admin_id(shape_obj) {
+//   let iso = shape_obj.iso.toLowerCase();
+//   let ids = Object.keys(shape_obj).filter(k => {
+//     return k.match(/^ID_\d+/i);
+//   }).map(k => {
+//     return shape_obj[k]
+//   }).join('_')
+//   let admin_id = [iso, ids, 'gadm2-8'].join('_');
+//   shape_obj.admin_id = admin_id;
+//   return shape_obj;
+// }
