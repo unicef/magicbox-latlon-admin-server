@@ -2,7 +2,7 @@ Latitude/longitude coordinates to admin ID server
 =================================================
 
 [![Chat on Gitter](https://badges.gitter.im/unicef-innovation-dev/Lobby.png)](https://gitter.im/unicef-innovation-dev/Lobby)
-[![Build Status](https://travis-ci.org/unicef/coordinates_to_admin_id_server.svg?branch=master)](https://travis-ci.org/unicef/coordinates_to_admin_id_server)
+[![Build Status](https://travis-ci.org/unicef/magicbox-latlon-admin-server.svg?branch=master)](https://travis-ci.org/unicef/magicbox-latlon-admin-server)
 
 [This is a component of Magic Box](https://github.com/unicef/magicbox)
 
